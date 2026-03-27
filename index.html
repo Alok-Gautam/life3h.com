@@ -7,24 +7,19 @@
   <meta name="description" content="The Life 3H Framework: harmonizing Happiness, Highness, and Holiness — a 24-year quest distilled into one equation. By Alok Gotam." />
   <link rel="icon" type="image/png" href="/logo.png" />
   <link rel="apple-touch-icon" href="/logo.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #faf9f7;
-      --text: #1a1a1a;
-      --muted: #6b6b6b;
+      --bg: #ffffff;
+      --text: #0d0d0d;
+      --secondary: #6a6a6a;
       --accent: #FF6719;
-      --accent-dark: #e55a14;
-      --accent-light: #fff4ee;
-      --border: #e5e2dc;
-      --highlight: #fff8f3;
-      --card-bg: #ffffff;
-      --max: 1100px;
-      --content-max: 680px;
-      --sidebar-w: 320px;
-      --gap: 3rem;
+      --accent-hover: #e55a14;
+      --border: #e6e6e6;
+      --surface: #f7f7f7;
+      --content-w: 680px;
+      --header-w: 1200px;
     }
 
     html { scroll-behavior: smooth; }
@@ -32,283 +27,201 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Lora', Georgia, serif;
-      font-size: 18px;
-      line-height: 1.8;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* ── HEADER ── */
+    /* ── HEADER (Substack-style) ── */
     .site-header {
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(250, 249, 247, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
     }
     .header-inner {
-      max-width: var(--max);
+      max-width: var(--header-w);
       margin: 0 auto;
-      padding: 1rem 2rem;
+      padding: 12px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
     .logo {
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 1rem;
-      letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       text-decoration: none;
       color: var(--text);
+      font-weight: 700;
+      font-size: 18px;
     }
-    .logo span { font-weight: 400; color: var(--muted); }
-    nav { display: flex; gap: 1.8rem; align-items: center; }
+    .logo img { height: 32px; width: 32px; }
+    .logo .logo-sub { font-weight: 400; color: var(--secondary); font-size: 15px; }
+
+    nav { display: flex; align-items: center; gap: 24px; }
     nav a {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.875rem;
-      color: var(--muted);
+      font-size: 14px;
+      color: var(--secondary);
       text-decoration: none;
-      transition: color 0.2s;
+      font-weight: 500;
+      transition: color 0.15s;
     }
     nav a:hover { color: var(--text); }
-    .nav-cta {
+    .nav-subscribe {
       background: var(--accent);
-      color: white !important;
-      padding: 0.45rem 1.2rem;
-      border-radius: 6px;
-      font-weight: 500;
+      color: #fff !important;
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
     }
-    .nav-cta:hover { background: var(--accent-dark); }
+    .nav-subscribe:hover { background: var(--accent-hover); }
 
-    /* Mobile menu */
     .menu-toggle {
       display: none;
       background: none;
       border: none;
       cursor: pointer;
-      padding: 0.5rem;
+      padding: 8px;
     }
     .menu-toggle span {
       display: block;
-      width: 22px;
+      width: 20px;
       height: 2px;
       background: var(--text);
-      margin: 5px 0;
-      transition: 0.3s;
+      margin: 4px 0;
     }
 
     /* ── HERO ── */
     .hero {
-      max-width: var(--max);
+      max-width: var(--content-w);
       margin: 0 auto;
-      padding: 5rem 2rem 4rem;
+      padding: 60px 20px 48px;
       text-align: center;
     }
-    .hero-eyebrow {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--accent);
-      margin-bottom: 1.2rem;
+    .hero-logo {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px;
     }
     .hero h1 {
-      font-size: 3.2rem;
-      font-weight: 600;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
     }
-    .hero .subtitle {
-      font-size: 1.15rem;
-      color: var(--muted);
-      max-width: 560px;
-      margin: 0 auto 2.5rem;
-      font-style: italic;
-      line-height: 1.7;
+    .hero .tagline {
+      font-size: 18px;
+      color: var(--secondary);
+      margin-bottom: 32px;
+      line-height: 1.5;
     }
-    .hero-buttons {
+    .hero-actions {
       display: flex;
-      gap: 1rem;
+      gap: 12px;
       justify-content: center;
       flex-wrap: wrap;
     }
-    .btn {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 500;
-      padding: 0.75rem 2rem;
-      border-radius: 8px;
+    .btn-subscribe {
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 600;
       text-decoration: none;
-      transition: all 0.2s;
+      transition: background 0.15s;
       display: inline-block;
     }
-    .btn-primary {
-      background: var(--accent);
-      color: white;
+    .btn-subscribe:hover { background: var(--accent-hover); }
+    .btn-ghost {
+      color: var(--secondary);
+      padding: 10px 24px;
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: all 0.15s;
+      display: inline-block;
     }
-    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-      border: 1.5px solid var(--border);
-    }
-    .btn-secondary:hover { border-color: var(--accent); transform: translateY(-1px); }
+    .btn-ghost:hover { border-color: var(--text); color: var(--text); }
 
-    /* ── DIVIDER ── */
-    .section-divider {
-      max-width: var(--max);
+    /* ── CONTENT AREA ── */
+    .content {
+      max-width: var(--content-w);
       margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .divider {
       border: none;
       border-top: 1px solid var(--border);
-    }
-
-    /* ── TWO-COL LAYOUT ── */
-    .two-col {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 3rem 2rem;
-      display: grid;
-      grid-template-columns: 1fr var(--sidebar-w);
-      gap: var(--gap);
-      align-items: start;
-    }
-    .main-content { min-width: 0; }
-
-    /* ── SIDEBAR ── */
-    .sidebar {
-      position: sticky;
-      top: 5rem;
-    }
-    .sidebar-section {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .sidebar-section h3 {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      padding-bottom: 0.6rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .sidebar-post {
-      display: block;
-      text-decoration: none;
-      color: var(--text);
-      padding: 0.6rem 0;
-      border-bottom: 1px solid var(--highlight);
-      transition: color 0.2s;
-    }
-    .sidebar-post:last-child { border-bottom: none; }
-    .sidebar-post:hover { color: var(--muted); }
-    .sidebar-post .post-title {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 500;
-      line-height: 1.4;
-      display: block;
-    }
-    .sidebar-post .post-date {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 0.15rem;
-      display: block;
-    }
-    .sidebar-subscribe {
-      text-align: center;
-    }
-    .sidebar-subscribe p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      line-height: 1.5;
-    }
-    .sidebar-subscribe .btn {
-      width: 100%;
-      text-align: center;
-      font-size: 0.85rem;
-      padding: 0.65rem 1.5rem;
+      margin: 48px 0;
     }
 
     /* ── SECTION STYLES ── */
-    .section-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 500;
+    .section-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.08em;
       color: var(--accent);
-      margin-bottom: 0.6rem;
+      margin-bottom: 8px;
     }
-    .main-content h2 {
-      font-size: 1.6rem;
-      font-weight: 600;
+    .content h2 {
+      font-size: 24px;
+      font-weight: 700;
       line-height: 1.3;
-      margin-bottom: 1.2rem;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
     }
-    .main-content p {
-      margin-bottom: 1.4rem;
+    .content p {
+      color: var(--text);
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.7;
     }
-    .main-content hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 3rem 0;
-    }
+    .content p.muted { color: var(--secondary); }
 
-    /* ── 3H CARDS ── */
+    /* ── THREE H CARDS ── */
     .three-h {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin: 1.5rem 0 2rem;
+      gap: 16px;
+      margin: 24px 0 32px;
     }
     .h-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
+      background: var(--surface);
       border-radius: 12px;
-      padding: 1.5rem 1.2rem;
+      padding: 24px 20px;
       text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .h-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
     }
     .h-card .h-icon {
-      font-size: 2rem;
-      margin-bottom: 0.6rem;
+      font-size: 28px;
+      margin-bottom: 8px;
       display: block;
     }
-    .h-card .label {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 500;
+    .h-card .h-label {
+      font-size: 11px;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-bottom: 0.3rem;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      margin-bottom: 4px;
     }
-    .h-card .value {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
+    .h-card .h-value {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
     }
     .h-card p {
-      font-size: 0.82rem;
-      color: var(--muted);
+      font-size: 14px;
+      color: var(--secondary);
       margin: 0;
       line-height: 1.5;
     }
@@ -316,279 +229,198 @@
     /* ── EQUATION ── */
     .equation {
       text-align: center;
-      font-size: 1.6rem;
-      font-weight: 600;
-      margin: 2rem 0;
-      padding: 1.5rem;
-      background: var(--highlight);
-      border-radius: 10px;
-      letter-spacing: 0.04em;
+      font-size: 28px;
+      font-weight: 700;
+      margin: 24px 0;
+      padding: 24px;
+      background: var(--surface);
+      border-radius: 12px;
+      letter-spacing: 0.02em;
     }
 
     /* ── CALLOUT ── */
     .callout {
-      background: var(--highlight);
+      background: var(--surface);
       border-left: 3px solid var(--accent);
-      padding: 1.2rem 1.5rem;
-      margin: 2rem 0;
+      padding: 16px 20px;
+      margin: 24px 0;
       border-radius: 0 8px 8px 0;
     }
-    .callout p { margin: 0; font-style: italic; }
+    .callout p { margin: 0; font-style: italic; color: var(--secondary); }
 
     /* ── TIMELINE ── */
     .timeline {
       position: relative;
-      padding-left: 2rem;
-      margin: 2rem 0;
+      padding-left: 24px;
+      margin: 24px 0;
     }
     .timeline::before {
       content: '';
       position: absolute;
       left: 0;
-      top: 0.5rem;
-      bottom: 0.5rem;
+      top: 6px;
+      bottom: 6px;
       width: 2px;
       background: var(--border);
     }
     .timeline-item {
       position: relative;
-      margin-bottom: 1.5rem;
+      margin-bottom: 20px;
     }
+    .timeline-item:last-child { margin-bottom: 0; }
     .timeline-item::before {
       content: '';
       position: absolute;
-      left: -2rem;
-      top: 0.6rem;
+      left: -24px;
+      top: 8px;
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background: var(--accent);
-      border: 2px solid var(--bg);
     }
     .timeline-year {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 600;
+      font-size: 13px;
+      font-weight: 700;
       color: var(--accent);
+      margin-bottom: 2px;
       display: block;
-      margin-bottom: 0.15rem;
     }
     .timeline-item p {
-      font-size: 0.95rem;
+      font-size: 15px;
       margin: 0;
       line-height: 1.6;
+      color: var(--secondary);
     }
 
     /* ── TESTIMONIALS ── */
     .testimonials-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      margin: 1.5rem 0;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0;
     }
-    .testimonial-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
+    .testimonial {
+      background: var(--surface);
       border-radius: 12px;
-      padding: 1.5rem;
+      padding: 20px;
     }
-    .testimonial-card blockquote {
-      font-size: 0.95rem;
+    .testimonial blockquote {
+      font-size: 15px;
       font-style: italic;
-      color: var(--muted);
-      margin-bottom: 1rem;
+      color: var(--secondary);
+      margin-bottom: 12px;
       line-height: 1.6;
     }
-    .testimonial-card .attribution {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--text);
-    }
-    .testimonial-card .attribution span {
-      font-weight: 400;
-      color: var(--muted);
-    }
-
-    /* ── FULL-WIDTH SECTIONS ── */
-    .full-section {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 3.5rem 2rem;
-    }
-    .full-section h2 {
-      font-size: 1.6rem;
+    .testimonial .attr {
+      font-size: 13px;
       font-weight: 600;
-      margin-bottom: 0.5rem;
     }
-    .full-section .section-label {
-      margin-bottom: 0.6rem;
-    }
-    .full-section > p {
-      color: var(--muted);
-      margin-bottom: 2rem;
-      max-width: 500px;
-    }
+    .testimonial .attr span { font-weight: 400; color: var(--secondary); }
 
-    /* ── BLOG CARDS ── */
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    .blog-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.8rem 1.5rem;
+    /* ── BLOG POSTS (Substack feed style) ── */
+    .post-list { margin: 24px 0; }
+    .post-item {
+      display: block;
       text-decoration: none;
       color: var(--text);
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: flex;
-      flex-direction: column;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      transition: opacity 0.15s;
     }
-    .blog-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-    }
-    .blog-card .blog-tag {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 500;
+    .post-item:first-child { border-top: 1px solid var(--border); }
+    .post-item:hover { opacity: 0.7; }
+    .post-item .post-tag {
+      font-size: 11px;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      margin-bottom: 0.8rem;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin-bottom: 4px;
+      display: block;
     }
-    .blog-card h3 {
-      font-size: 1.05rem;
-      font-weight: 600;
-      line-height: 1.4;
-      margin-bottom: 0.8rem;
+    .post-item h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      line-height: 1.3;
     }
-    .blog-card p {
-      font-size: 0.85rem;
-      color: var(--muted);
+    .post-item p {
+      font-size: 15px;
+      color: var(--secondary);
+      margin: 0;
       line-height: 1.5;
-      flex: 1;
-    }
-    .blog-card .read-more {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--accent);
-      margin-top: 1rem;
     }
 
-    /* ── NEWSLETTER CTA ── */
-    .newsletter-cta {
-      background: var(--accent);
-      color: white;
-      border-radius: 16px;
-      padding: 3.5rem;
-      margin: 1rem 2rem;
-      max-width: calc(var(--max) - 4rem);
-      margin-left: auto;
-      margin-right: auto;
+    /* ── SUBSCRIBE CTA ── */
+    .subscribe-cta {
       text-align: center;
+      padding: 48px 20px;
+      margin: 0 -20px;
+      background: var(--surface);
+      border-radius: 12px;
     }
-    .newsletter-cta h2 {
-      color: white;
-      font-size: 1.5rem;
-      margin-bottom: 0.8rem;
+    .subscribe-cta h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
     }
-    .newsletter-cta p {
-      color: rgba(255,255,255,0.7);
-      font-size: 0.95rem;
-      max-width: 480px;
-      margin: 0 auto 2rem;
+    .subscribe-cta p {
+      color: var(--secondary);
+      margin-bottom: 24px;
+      font-size: 16px;
     }
-    .newsletter-cta .subscribe-row {
-      display: flex;
-      gap: 0.6rem;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-    .newsletter-cta input {
-      flex: 1;
-      padding: 0.75rem 1rem;
-      border: none;
-      border-radius: 8px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
-      outline: none;
-    }
-    .newsletter-cta button {
-      background: white;
-      color: var(--accent);
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 0.85rem;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: opacity 0.2s;
-    }
-    .newsletter-cta button:hover { opacity: 0.85; }
 
-    /* ── ABOUT SECTION ── */
+    /* ── ABOUT ── */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 1.5rem;
+      gap: 20px;
+      margin: 24px 0;
     }
     .about-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
+      background: var(--surface);
       border-radius: 12px;
-      padding: 2rem;
+      padding: 24px;
     }
     .about-card h3 {
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
     }
     .about-card p {
-      font-size: 0.9rem;
-      color: var(--muted);
+      font-size: 14px;
+      color: var(--secondary);
       line-height: 1.6;
-      margin-bottom: 1rem;
+      margin-bottom: 12px;
     }
     .about-card a {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
+      font-size: 14px;
       color: var(--accent);
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
     }
-    .about-card a:hover { text-decoration: underline; color: var(--accent-dark); }
+    .about-card a:hover { text-decoration: underline; }
     .about-links {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 6px;
     }
 
     /* ── FOOTER ── */
     .site-footer {
-      max-width: var(--max);
+      max-width: var(--content-w);
       margin: 0 auto;
-      padding: 2rem;
+      padding: 24px 20px;
       border-top: 1px solid var(--border);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.8rem;
-      color: var(--muted);
+      font-size: 13px;
+      color: var(--secondary);
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 8px;
     }
     .site-footer a {
-      color: var(--muted);
+      color: var(--secondary);
       text-decoration: none;
     }
     .site-footer a:hover { color: var(--text); }
@@ -596,46 +428,22 @@
     /* ── ANIMATIONS ── */
     .fade-in {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    /* Hero visible immediately (no animation delay) */
-    .hero.fade-in {
-      opacity: 1;
-      transform: none;
-    }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 1024px) {
-      .two-col {
-        grid-template-columns: 1fr;
-      }
-      .sidebar {
-        position: static;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-      }
-    }
-
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.2rem; }
-      .hero { padding: 3rem 1.5rem 2.5rem; }
+      .hero h1 { font-size: 28px; }
+      .hero { padding: 40px 20px 32px; }
+      .hero-logo { width: 60px; height: 60px; }
       .three-h { grid-template-columns: 1fr; }
-      .blog-grid { grid-template-columns: 1fr; }
       .testimonials-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; }
-      .sidebar { grid-template-columns: 1fr; }
-      .newsletter-cta { padding: 2.5rem 1.5rem; margin: 1rem; }
-      .newsletter-cta .subscribe-row { flex-direction: column; }
-      .full-section { padding: 2.5rem 1.5rem; }
-      .two-col { padding: 2rem 1.5rem; }
-
-      /* Mobile nav */
       nav { display: none; }
       nav.open {
         display: flex;
@@ -646,8 +454,8 @@
         right: 0;
         background: var(--bg);
         border-bottom: 1px solid var(--border);
-        padding: 1rem 2rem 1.5rem;
-        gap: 1rem;
+        padding: 16px 20px;
+        gap: 12px;
       }
       .menu-toggle { display: block; }
     }
@@ -658,7 +466,10 @@
 <!-- ── HEADER ── -->
 <header class="site-header">
   <div class="header-inner">
-    <a class="logo" href="/"><img src="/logo.png" alt="Life 3H Logo" style="height:36px;width:36px;vertical-align:middle;margin-right:8px;" />LIFE 3H <span>Framework</span></a>
+    <a class="logo" href="/">
+      <img src="/logo.png" alt="Life 3H" />
+      <span>Life 3H Framework</span>
+    </a>
     <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('nav').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
@@ -667,205 +478,182 @@
       <a href="#story">Story</a>
       <a href="https://life3h.substack.com" target="_blank">Blog</a>
       <a href="#about">About</a>
-      <a href="https://life3h.substack.com" target="_blank" class="nav-cta">Subscribe</a>
+      <a href="https://life3h.substack.com" target="_blank" class="nav-subscribe">Subscribe</a>
     </nav>
   </div>
 </header>
 
 <!-- ── HERO ── -->
 <section class="hero fade-in">
-  <div class="hero-eyebrow">Happiness &middot; Highness &middot; Holiness</div>
+  <img src="/logo.png" alt="Life 3H" class="hero-logo" />
   <h1>A Framework for a Good Life</h1>
-  <p class="subtitle">A 24-year quest across IIT, the Himalayas, IIM, and the frontiers of AI &mdash; distilled into one equation for human fulfillment.</p>
-  <div class="hero-buttons">
-    <a href="#framework" class="btn btn-primary">Explore the Framework</a>
-    <a href="https://life3h.substack.com" target="_blank" class="btn btn-secondary">Read the Blog &rarr;</a>
+  <p class="tagline">A 24-year quest across IIT, the Himalayas, IIM, and the frontiers of AI &mdash; distilled into one equation for human fulfillment.</p>
+  <div class="hero-actions">
+    <a href="https://life3h.substack.com" target="_blank" class="btn-subscribe">Subscribe</a>
+    <a href="#framework" class="btn-ghost">Explore the Framework</a>
   </div>
 </section>
 
-<hr class="section-divider" />
+<!-- ── MAIN CONTENT ── -->
+<div class="content">
 
-<!-- ── TWO-COL: CONTENT + SIDEBAR ── -->
-<div class="two-col">
-  <div class="main-content">
+  <hr class="divider" />
 
-    <!-- § FRAMEWORK -->
-    <section id="framework" class="fade-in">
-      <div class="section-label">The Framework</div>
-      <h2>Three Independent Core Drives</h2>
-      <p>Just as an AGI system requires a Core Objective Function and Independent Core Drives to operate, so does the human brain &mdash; a Biological General Intelligence. Our Core Objective Function is <strong>to Survive</strong>. But survival alone doesn't explain what makes life feel <em>good</em>. That answer lies in three irreducible drives:</p>
+  <!-- § FRAMEWORK -->
+  <section id="framework" class="fade-in">
+    <div class="section-eyebrow">The Framework</div>
+    <h2>Three Independent Core Drives</h2>
+    <p>Just as an AGI system requires a Core Objective Function and Independent Core Drives to operate, so does the human brain &mdash; a Biological General Intelligence. Our Core Objective Function is <strong>to Survive</strong>. But survival alone doesn't explain what makes life feel <em>good</em>. That answer lies in three irreducible drives:</p>
 
-      <div class="three-h">
-        <div class="h-card fade-in">
-          <span class="h-icon">&#9825;</span>
-          <div class="label">1st H</div>
-          <div class="value">Happiness</div>
-          <p>Fulfillment from the quantity, quality, and proximity of your social connections. Family, friends, community &mdash; the bonds that make life warm.</p>
-        </div>
-        <div class="h-card fade-in">
-          <span class="h-icon">&#9650;</span>
-          <div class="label">2nd H</div>
-          <div class="value">Highness</div>
-          <p>The drive for professional achievement, mastery, and growth. The exhilaration of building, creating, and being recognized for your craft.</p>
-        </div>
-        <div class="h-card fade-in">
-          <span class="h-icon">&#10022;</span>
-          <div class="label">3rd H</div>
-          <div class="value">Holiness</div>
-          <p>Inner peace through elevated consciousness. Meditation, stillness, presence &mdash; the quiet wholeness that no external success can replace.</p>
-        </div>
+    <div class="three-h">
+      <div class="h-card fade-in">
+        <span class="h-icon">&#9825;</span>
+        <div class="h-label">1st H</div>
+        <div class="h-value">Happiness</div>
+        <p>Fulfillment from the quantity, quality, and proximity of your social connections. Family, friends, community.</p>
       </div>
-    </section>
-
-    <hr />
-
-    <!-- § EQUATION -->
-    <section class="fade-in">
-      <div class="section-label">The Equation</div>
-      <h2>The Equation of Fulfillment</h2>
-      <div class="equation">F = Ha + Hi + Ho</div>
-      <p><strong>F</strong> is your Fulfillment Constant &mdash; unique to you. <strong>Ha</strong>, <strong>Hi</strong>, and <strong>Ho</strong> represent your individual capacity for Happiness, Highness, and Holiness. The ratio in which these drives exist within you is your <strong>F-Ratio</strong>.</p>
-      <p>Two people can have the same objective level of happiness, yet one feels deeply fulfilled while the other faces a massive deficit &mdash; because their F-Ratios are different. The framework doesn't judge which ratio is better. It illuminates <em>your</em> unique path to fulfillment by revealing where your deficits actually lie.</p>
-    </section>
-
-    <hr />
-
-    <!-- § STORY -->
-    <section id="story" class="fade-in">
-      <div class="section-label">The Origin</div>
-      <h2>A 20-Year Journey to One Equation</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <span class="timeline-year">1999</span>
-          <p>Enrolled at IIT Kanpur. A 25-year alumni reunion revealed deep dissatisfaction among the accomplished &mdash; sparking the question: <em>What truly makes a good life?</em> Dropped out to find the answer.</p>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">1999 &ndash; 2003</span>
-          <p>Immersed in philosophy, quantum physics, mathematics, and spirituality &mdash; searching for the foundational principles of human fulfillment.</p>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">2003 &ndash; 2005</span>
-          <p>Master's in International Relations at JNU, broadening the lens from individual to collective well-being.</p>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">2005 &ndash; 2009</span>
-          <p>Four years in the Himalayas &mdash; leaving books behind, focusing on unlearning. Then IIM Ahmedabad for an MBA, bridging inner wisdom with worldly systems.</p>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">2023</span>
-          <p>While building Oltau.AI &mdash; an Artificial General Intelligence system &mdash; the Eureka moment arrived. The human brain is a Biological General Intelligence. Through extensive discussion and brainstorming with <strong>Nishant Singh</strong>, the three independent core drives crystallized into the Life 3H Framework.</p>
-        </div>
+      <div class="h-card fade-in">
+        <span class="h-icon">&#9650;</span>
+        <div class="h-label">2nd H</div>
+        <div class="h-value">Highness</div>
+        <p>The drive for professional achievement, mastery, and growth. Building, creating, and being recognized.</p>
       </div>
-      <div class="callout">
-        <p>A journey that began in 1999 finally concluded in 2023. Philosophy, spirituality, and artificial intelligence converged into a comprehensive framework for a good life.</p>
-      </div>
-    </section>
-
-    <hr />
-
-    <!-- § TESTIMONIALS -->
-    <section class="fade-in">
-      <div class="section-label">Voices</div>
-      <h2>What People Are Saying</h2>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <blockquote>&ldquo;The F-Ratio concept finally helped me understand why I felt unfulfilled despite career success. My Holiness drive was at near-zero.&rdquo;</blockquote>
-          <div class="attribution">Early Adopter <span>&middot; Tech Executive</span></div>
-        </div>
-        <div class="testimonial-card">
-          <blockquote>&ldquo;This framework bridges the gap between ancient wisdom and modern science in a way that's actually actionable.&rdquo;</blockquote>
-          <div class="attribution">Early Adopter <span>&middot; Wellness Practitioner</span></div>
-        </div>
-      </div>
-      <p style="font-size:0.85rem; color:var(--muted); font-style:italic; margin-top:0.5rem;">More voices coming soon as the movement grows.</p>
-    </section>
-
-  </div><!-- /.main-content -->
-
-  <!-- ── SIDEBAR ── -->
-  <aside class="sidebar">
-    <div class="sidebar-section">
-      <h3>Latest from the Blog</h3>
-      <div id="substack-feed">
-        <a class="sidebar-post" href="https://life3h.substack.com" target="_blank">
-          <span class="post-title">Visit the Life 3H Blog for the latest posts</span>
-          <span class="post-date">life3h.substack.com</span>
-        </a>
+      <div class="h-card fade-in">
+        <span class="h-icon">&#10022;</span>
+        <div class="h-label">3rd H</div>
+        <div class="h-value">Holiness</div>
+        <p>Inner peace through elevated consciousness. Meditation, stillness, presence &mdash; quiet wholeness.</p>
       </div>
     </div>
+  </section>
 
-    <div class="sidebar-section sidebar-subscribe">
-      <h3>Stay in the Loop</h3>
-      <p>Get new essays on life, intelligence, and fulfillment delivered to your inbox.</p>
-      <a href="https://life3h.substack.com/?simple=true" target="_blank" class="btn btn-primary">Subscribe on Substack</a>
+  <hr class="divider" />
+
+  <!-- § EQUATION -->
+  <section class="fade-in">
+    <div class="section-eyebrow">The Equation</div>
+    <h2>The Equation of Fulfillment</h2>
+    <div class="equation">F = Ha + Hi + Ho</div>
+    <p><strong>F</strong> is your Fulfillment Constant &mdash; unique to you. <strong>Ha</strong>, <strong>Hi</strong>, and <strong>Ho</strong> represent your individual capacity for Happiness, Highness, and Holiness. The ratio in which these drives exist within you is your <strong>F-Ratio</strong>.</p>
+    <p>Two people can have the same objective level of happiness, yet one feels deeply fulfilled while the other faces a massive deficit &mdash; because their F-Ratios are different. The framework doesn't judge which ratio is better. It illuminates <em>your</em> unique path to fulfillment.</p>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- § STORY -->
+  <section id="story" class="fade-in">
+    <div class="section-eyebrow">The Origin</div>
+    <h2>A 24-Year Journey to One Equation</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="timeline-year">1999</span>
+        <p>Enrolled at IIT Kanpur. A 25-year alumni reunion revealed deep dissatisfaction among the accomplished &mdash; sparking the question: What truly makes a good life? Dropped out to find the answer.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">1999 &ndash; 2003</span>
+        <p>Immersed in philosophy, quantum physics, mathematics, and spirituality &mdash; searching for the foundational principles of human fulfillment.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2003 &ndash; 2005</span>
+        <p>Master's in International Relations at JNU, broadening the lens from individual to collective well-being.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2005 &ndash; 2009</span>
+        <p>Four years in the Himalayas &mdash; leaving books behind, focusing on unlearning. Then IIM Ahmedabad for an MBA, bridging inner wisdom with worldly systems.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2023</span>
+        <p>While building Oltau.AI &mdash; an Artificial General Intelligence system &mdash; the Eureka moment arrived. The human brain is a Biological General Intelligence. Through extensive discussion and brainstorming with <strong>Nishant Singh</strong>, the three independent core drives crystallized into the Life 3H Framework.</p>
+      </div>
     </div>
-  </aside>
-</div><!-- /.two-col -->
+    <div class="callout">
+      <p>A journey that began in 1999 finally concluded in 2023. Philosophy, spirituality, and artificial intelligence converged into a comprehensive framework for a good life.</p>
+    </div>
+  </section>
 
-<hr class="section-divider" />
+  <hr class="divider" />
 
-<!-- ── BLOG SECTION (FULL WIDTH) ── -->
-<section id="blog" class="full-section fade-in">
-  <div class="section-label">From the Blog</div>
-  <h2>Thoughts on Life, Intelligence &amp; Everything In Between</h2>
-  <p>Raw, unfiltered explorations of human relationships, startups, AI, quantum physics, and the evolving future.</p>
+  <!-- § TESTIMONIALS -->
+  <section class="fade-in">
+    <div class="section-eyebrow">Voices</div>
+    <h2>What People Are Saying</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <blockquote>&ldquo;The F-Ratio concept finally helped me understand why I felt unfulfilled despite career success. My Holiness drive was at near-zero.&rdquo;</blockquote>
+        <div class="attr">Early Adopter <span>&middot; Tech Executive</span></div>
+      </div>
+      <div class="testimonial">
+        <blockquote>&ldquo;This framework bridges the gap between ancient wisdom and modern science in a way that's actually actionable.&rdquo;</blockquote>
+        <div class="attr">Early Adopter <span>&middot; Wellness Practitioner</span></div>
+      </div>
+    </div>
+    <p class="muted" style="font-size:14px;font-style:italic;">More voices coming soon as the movement grows.</p>
+  </section>
 
-  <div class="blog-grid">
-    <a class="blog-card" href="https://life3h.substack.com" target="_blank">
-      <div class="blog-tag">Framework</div>
-      <h3>Understanding Your F-Ratio: Why One Size Doesn't Fit All</h3>
-      <p>Why two equally successful people can feel vastly different levels of fulfillment &mdash; and how to find your unique balance.</p>
-      <span class="read-more">Read &rarr;</span>
-    </a>
-    <a class="blog-card" href="https://life3h.substack.com" target="_blank">
-      <div class="blog-tag">AI &amp; Consciousness</div>
-      <h3>From AGI to BGI: What Artificial Intelligence Taught Me About Being Human</h3>
-      <p>Building an AI system revealed the architecture of the human mind &mdash; and the drives that make us tick.</p>
-      <span class="read-more">Read &rarr;</span>
-    </a>
-    <a class="blog-card" href="https://life3h.substack.com" target="_blank">
-      <div class="blog-tag">Relationships</div>
-      <h3>The Happiness Deficit: Why Social Connection Is the Most Neglected Drive</h3>
-      <p>In an age of hyper-connectivity, genuine social bonds are declining. Here's what the framework says about it.</p>
-      <span class="read-more">Read &rarr;</span>
-    </a>
+  <hr class="divider" />
+
+  <!-- § FROM THE BLOG -->
+  <section id="blog" class="fade-in">
+    <div class="section-eyebrow">From the Blog</div>
+    <h2>Latest on Substack</h2>
+    <p class="muted">Raw, unfiltered explorations of human relationships, startups, AI, quantum physics, and the evolving future.</p>
+
+    <div class="post-list">
+      <a class="post-item" href="https://life3h.substack.com" target="_blank">
+        <span class="post-tag">Framework</span>
+        <h3>Understanding Your F-Ratio: Why One Size Doesn't Fit All</h3>
+        <p>Why two equally successful people can feel vastly different levels of fulfillment &mdash; and how to find your unique balance.</p>
+      </a>
+      <a class="post-item" href="https://life3h.substack.com" target="_blank">
+        <span class="post-tag">AI &amp; Consciousness</span>
+        <h3>From AGI to BGI: What Artificial Intelligence Taught Me About Being Human</h3>
+        <p>Building an AI system revealed the architecture of the human mind &mdash; and the drives that make us tick.</p>
+      </a>
+      <a class="post-item" href="https://life3h.substack.com" target="_blank">
+        <span class="post-tag">Relationships</span>
+        <h3>The Happiness Deficit: Why Social Connection Is the Most Neglected Drive</h3>
+        <p>In an age of hyper-connectivity, genuine social bonds are declining. Here's what the framework says about it.</p>
+      </a>
+    </div>
+
+    <p style="text-align:center;margin-top:24px;">
+      <a href="https://life3h.substack.com" target="_blank" class="btn-ghost">Read all posts on Substack &rarr;</a>
+    </p>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- § SUBSCRIBE CTA -->
+  <div class="subscribe-cta fade-in">
+    <h2>Join the Life 3H Movement</h2>
+    <p>Subscribe for essays on fulfillment, intelligence, and the art of living well.</p>
+    <a href="https://life3h.substack.com/?simple=true" target="_blank" class="btn-subscribe">Subscribe on Substack</a>
   </div>
-</section>
 
-<hr class="section-divider" />
+  <hr class="divider" />
 
-<!-- ── NEWSLETTER CTA ── -->
-<div class="newsletter-cta fade-in">
-  <h2>Join the Life 3H Movement</h2>
-  <p>Subscribe for essays on fulfillment, intelligence, and the art of living well. No spam, just substance.</p>
-  <div class="subscribe-row">
-    <a href="https://life3h.substack.com/?simple=true" target="_blank" class="btn" style="background:white; color:var(--accent); font-weight:600; flex:1; text-align:center;">Subscribe on Substack &rarr;</a>
-  </div>
-</div>
-
-<hr class="section-divider" style="margin-top:2rem;" />
-
-<!-- ── ABOUT ── -->
-<section id="about" class="full-section fade-in">
-  <div class="section-label">About</div>
-  <h2>The Mind Behind the Framework</h2>
-  <div class="about-grid">
-    <div class="about-card">
-      <h3>Alok Gotam</h3>
-      <p>IIT Kanpur dropout turned philosopher turned Himalayan seeker turned IIM Ahmedabad MBA turned AI builder. Founder &amp; CEO at Olbrain Labs, where he builds agentic AI systems. Two decades of cross-disciplinary exploration distilled into one life's work: the 3H Framework.</p>
-      <div class="about-links">
-        <a href="mailto:alok@life3h.com">alok@life3h.com</a>
-        <a href="https://olbrainlabs.com" target="_blank">Olbrain Labs &rarr;</a>
+  <!-- § ABOUT -->
+  <section id="about" class="fade-in">
+    <div class="section-eyebrow">About</div>
+    <h2>The Mind Behind the Framework</h2>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>Alok Gotam</h3>
+        <p>IIT Kanpur dropout turned philosopher turned Himalayan seeker turned IIM Ahmedabad MBA turned AI builder. Founder &amp; CEO at Olbrain Labs, where he builds agentic AI systems. Two decades of cross-disciplinary exploration distilled into one life's work: the 3H Framework.</p>
+        <div class="about-links">
+          <a href="mailto:alok@life3h.com">alok@life3h.com</a>
+          <a href="https://olbrainlabs.com" target="_blank">Olbrain Labs &rarr;</a>
+        </div>
+      </div>
+      <div class="about-card">
+        <h3>The Mission</h3>
+        <p>The Life 3H Framework is not just a theoretical model &mdash; it is a practical tool for anyone seeking a more balanced and fulfilling life. The mission has garnered the support of numerous visionaries, and the movement is steadily gaining momentum.</p>
+        <a href="https://life3h.substack.com" target="_blank">Follow the journey on Substack &rarr;</a>
       </div>
     </div>
-    <div class="about-card">
-      <h3>The Mission</h3>
-      <p>The Life 3H Framework is not just a theoretical model &mdash; it is a practical tool for anyone seeking a more balanced and fulfilling life. The mission has garnered the support of numerous visionaries, and the movement is steadily gaining momentum.</p>
-      <p>We invite you to join us in this revolutionary journey.</p>
-      <a href="https://life3h.substack.com" target="_blank">Follow the journey on Substack &rarr;</a>
-    </div>
-  </div>
-</section>
+  </section>
+
+</div><!-- /.content -->
 
 <!-- ── FOOTER ── -->
 <footer class="site-footer">
@@ -877,9 +665,8 @@
   </span>
 </footer>
 
-<!-- ── JS: Animations + Substack Feed ── -->
+<!-- ── JS ── -->
 <script>
-  // Intersection Observer for fade-in animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -887,57 +674,15 @@
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+  }, { threshold: 0.05 });
 
   document.querySelectorAll('.fade-in').forEach(el => {
-    // If element is already in view on load, make it visible immediately
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight) {
+    if (el.getBoundingClientRect().top < window.innerHeight) {
       el.classList.add('visible');
     } else {
       observer.observe(el);
     }
   });
-
-  // Close mobile nav on link click
-  document.querySelectorAll('nav a').forEach(a => {
-    a.addEventListener('click', () => {
-      document.querySelector('nav').classList.remove('open');
-    });
-  });
-
-  // Fetch Substack RSS feed for sidebar
-  (async function loadSubstackFeed() {
-    try {
-      const res = await fetch('https://life3h.substack.com/feed');
-      if (!res.ok) return;
-      const text = await res.text();
-      const parser = new DOMParser();
-      const xml = parser.parseFromString(text, 'text/xml');
-      const items = xml.querySelectorAll('item');
-      if (items.length === 0) return;
-
-      const container = document.getElementById('substack-feed');
-      container.innerHTML = '';
-      const count = Math.min(items.length, 5);
-      for (let i = 0; i < count; i++) {
-        const title = items[i].querySelector('title')?.textContent || '';
-        const link = items[i].querySelector('link')?.textContent || 'https://life3h.substack.com';
-        const pubDate = items[i].querySelector('pubDate')?.textContent || '';
-        const date = pubDate ? new Date(pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
-
-        const a = document.createElement('a');
-        a.className = 'sidebar-post';
-        a.href = link;
-        a.target = '_blank';
-        a.innerHTML = `<span class="post-title">${title}</span>${date ? `<span class="post-date">${date}</span>` : ''}`;
-        container.appendChild(a);
-      }
-    } catch (e) {
-      // Silently fail — fallback link is already in place
-    }
-  })();
 </script>
-
 </body>
 </html>
