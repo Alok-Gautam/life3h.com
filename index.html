@@ -15,9 +15,11 @@
       --bg: #faf9f7;
       --text: #1a1a1a;
       --muted: #6b6b6b;
-      --accent: #2c2c2c;
+      --accent: #FF6719;
+      --accent-dark: #e55a14;
+      --accent-light: #fff4ee;
       --border: #e5e2dc;
-      --highlight: #f0ede8;
+      --highlight: #fff8f3;
       --card-bg: #ffffff;
       --max: 1100px;
       --content-max: 680px;
@@ -78,7 +80,7 @@
       border-radius: 6px;
       font-weight: 500;
     }
-    .nav-cta:hover { opacity: 0.85; }
+    .nav-cta:hover { background: var(--accent-dark); }
 
     /* Mobile menu */
     .menu-toggle {
@@ -110,7 +112,7 @@
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      color: var(--muted);
+      color: var(--accent);
       margin-bottom: 1.2rem;
     }
     .hero h1 {
@@ -150,7 +152,7 @@
       background: var(--accent);
       color: white;
     }
-    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
     .btn-secondary {
       background: transparent;
       color: var(--text);
@@ -248,7 +250,7 @@
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--muted);
+      color: var(--accent);
       margin-bottom: 0.6rem;
     }
     .main-content h2 {
@@ -367,7 +369,7 @@
       font-family: 'Inter', sans-serif;
       font-size: 0.78rem;
       font-weight: 600;
-      color: var(--muted);
+      color: var(--accent);
       display: block;
       margin-bottom: 0.15rem;
     }
@@ -475,7 +477,7 @@
       font-family: 'Inter', sans-serif;
       font-size: 0.82rem;
       font-weight: 500;
-      color: var(--text);
+      color: var(--accent);
       margin-top: 1rem;
     }
 
@@ -560,11 +562,11 @@
     .about-card a {
       font-family: 'Inter', sans-serif;
       font-size: 0.85rem;
-      color: var(--text);
+      color: var(--accent);
       text-decoration: none;
       font-weight: 500;
     }
-    .about-card a:hover { text-decoration: underline; }
+    .about-card a:hover { text-decoration: underline; color: var(--accent-dark); }
     .about-links {
       display: flex;
       flex-direction: column;
